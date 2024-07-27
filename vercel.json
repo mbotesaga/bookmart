@@ -2,14 +2,21 @@
     "version": 2,
     "builds": [
       {
-        "src": "dist/**",
-        "use": "@vercel/static"
+        "src": "src/**/*",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "angular.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist/bookstore"
+        }
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/dist/$1"
+        "dest": "/dist/bookstore/$1"
       }
     ]
   }
