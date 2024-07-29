@@ -11,6 +11,7 @@
     <div class="head-right-item">
         <div class="cart" routerLink="cart">
             <img class="cart-image" src="assets/img/cart.png">
+            <div class="cart-items" *ngIf="cartItemCount">{{cartItemCount}}</div>
         </div>
     </div>
 </div>

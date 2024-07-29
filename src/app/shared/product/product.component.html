@@ -7,6 +7,7 @@
     <div class="card-content">
         <h4 class="text-truncate">{{book.title}}</h4>
         <p class="text-secondary text-truncate">{{book.categories}}</p>
-        <button class="btn-theme w-100">Add to cart</button>
+        <button class="btn-theme w-100" (click)="addToCart(book)" *ngIf="!isProductInCart">Add to cart</button>
+        <button class="btn-theme w-100" *ngIf="isProductInCart" routerLink="cart">Go to cart</button>
     </div>
 </div>
