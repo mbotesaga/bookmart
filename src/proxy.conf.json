@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://localhost:3000/",
+    "target": "https://bookmart-json.vercel.app/",
     "secure": false,
     "pathRewrite": {
       "^/api": ""
