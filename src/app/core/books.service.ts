@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class BooksService {
-baseUrl = 'api/books';
+baseUrl = 'api';
 books: any[] = [];
 constructor(private http:HttpClient) {}
 

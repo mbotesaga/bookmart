@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://bookmart-json.vercel.app/",
+    "target": "https://bookmart-json.vercel.app/books",
     "secure": false,
     "pathRewrite": {
       "^/api": ""
