@@ -10,5 +10,9 @@
         <div class="items-container me-5">
             <app-cart-items [item]="cartItem" *ngFor="let cartItem of cartItems"></app-cart-items>
         </div>
+        <div>
+           <app-price-details></app-price-details> 
+           <button class="btn-theme btn-checkout">Checkout</button>
+        </div>
     </div>
 </div>
