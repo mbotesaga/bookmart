@@ -8,6 +8,7 @@ import { BooksService } from '../../core/books.service';
 })
 export class HomeComponent implements OnInit{
 books: any;
+searchText: any;
 constructor(private booksService:BooksService) {}
 
 ngOnInit(): void {
@@ -22,6 +23,9 @@ ngOnInit(): void {
       this.books = res;
       this.books = this.booksService.getFilteBooksByPrice(price);
     });
-  })
+  });
+this.booksService.searchSubject.subscribe((searchString:any) => {
+  this.searchText = searchString;
+})
 }
 }

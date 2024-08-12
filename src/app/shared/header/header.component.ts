@@ -8,7 +8,7 @@ import { BooksService } from '../../core/books.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
-  searchText: any;
+  searchText: any = '';
   cartItemCount: any;
   isSortMenuVisible: boolean = false;
   criteria: any[]=['Price(Low to high)']
@@ -20,12 +20,15 @@ export class HeaderComponent implements OnInit{
       })
     }
     sortBooks(criterion: any){
-
+      this.booksService.getSortCriterion(criterion);
     }
 
     showSortMenu(){
       this.isSortMenuVisible = !this.isSortMenuVisible;
     }
     
+    searchBook(searchText: any){
+      this.booksService.getSearchString(searchText);
+    }
   }
 

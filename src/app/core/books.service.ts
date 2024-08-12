@@ -13,6 +13,8 @@ filteredBooks: any;
 sortCriterion: any;
 sortSubject = new Subject();
 priceFilter: any;
+searchText: any = '';
+searchSubject = new Subject();
 priceFilterSubject = new Subject();
 
 constructor(private http:HttpClient) {}
@@ -55,6 +57,16 @@ getPriceFilter(price:any){
 getFilteBooksByPrice(price:any){
   return this.filteredBooks = this.books.filter((book:any) => {
     return book.price <= price;
+  })
+}
+getSearchString(searchText: any){
+  this.searchText = searchText;
+  this.searchSubject.next(this.searchText);
+}
+
+getCurrentBook(id:any){
+  return this.books.find((book:any) => {
+    return book.isbn === id.isbn;
   })
 }
 }

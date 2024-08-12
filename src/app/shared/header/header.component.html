@@ -4,7 +4,8 @@
     </a>
     <form #searchBox="ngForm">
         <div class="header-search ms-3 d-flex align-items-center">
-            <input type="text" class="seach-box"[(ngModel)]="searchText" name="searchText" placeholder="search for books">
+            <input type="text" class="seach-box"[(ngModel)]="searchText" name="searchText" 
+            placeholder="search for books" (keyup)="searchBook(searchText)">
         </div>
     </form>
     <button class="btn-theme ms-4" (click)="showSortMenu()">Sort</button>
