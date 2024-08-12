@@ -7,7 +7,14 @@
             <input type="text" class="seach-box"[(ngModel)]="searchText" name="searchText" placeholder="search for books">
         </div>
     </form>
-    <button class="btn-theme ms-4 ">Sort</button>
+    <button class="btn-theme ms-4" (click)="showSortMenu()">Sort</button>
+    <div class="dropdown-container" *ngIf="isSortMenuVisible">
+        <div class="dropdown-list row w-250">
+            <span class="dropdown-list-item" *ngFor="let criterion of criteria" (click)="sortBooks(criterion)">
+                {{criterion}}
+            </span>
+        </div>
+    </div>
     <div class="head-right-item">
         <div class="cart" routerLink="cart">
             <img class="cart-image" src="assets/img/cart.png">

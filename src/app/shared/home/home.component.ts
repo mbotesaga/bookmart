@@ -12,8 +12,16 @@ constructor(private booksService:BooksService) {}
 
 ngOnInit(): void {
   this.booksService.getAllBooks().subscribe((res) => {
-    console.log(res);
     this.books = res;
   });
+  this.booksService.sortSubject.subscribe((sortCriterion: any) => {
+    this.books = this.booksService.sortBooks(sortCriterion);
+  });
+  this.booksService.priceFilterSubject.subscribe((price:any) => {
+    this.booksService.getAllBooks().subscribe((res) => {
+      this.books = res;
+      this.books = this.booksService.getFilteBooksByPrice(price);
+    });
+  })
 }
 }
