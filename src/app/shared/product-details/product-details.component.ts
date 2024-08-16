@@ -19,6 +19,12 @@ export class ProductDetailsComponent implements OnInit {
     this.activateRoute.queryParams.subscribe((res) => {
       this.currentProduct = this.booksService.getCurrentBook(res);
     });
-    
+    this.discountedPrice = this.cartService.getDiscountedPrice(this.currentProduct);
+    this.isProductInCart = this.cartService.isProductInCart(this.currentProduct);
+  }
+
+  addToCart(book:any){
+    this.cartService.addProductToCart(book);
+    this.isProductInCart = true;
   }
 }

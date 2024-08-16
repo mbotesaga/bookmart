@@ -69,4 +69,19 @@ export class CartService {
     });
     return billingDetails;
   }
+  isProductInCart(product:any){
+    let book = this.cartProducts.find((p:any) => {
+      return p.isbn == product.isbn;
+    });
+    if(book){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  getDiscountedPrice(currentItem:any){
+    return currentItem.price - (currentItem.discount) / 100 * currentItem.price;
+  }
 }
