@@ -1,25 +1,28 @@
-<div class="header d-flex align-items-center">
-    <a routerLink="/home">
-        <img class="main-logo" src="assets/img/logo.png">
-    </a>
-    <form #searchBox="ngForm">
-        <div class="header-search ms-3 d-flex align-items-center">
-            <input type="text" class="seach-box"[(ngModel)]="searchText" name="searchText" 
-            placeholder="search for books" (keyup)="searchBook(searchText)">
+    <div class="row">
+        <div class="header d-flex align-items-center col-md-12 col-sm-12">
+            <a routerLink="/home">
+                <img class="main-logo" src="assets/img/logo.png">
+            </a>
+            <form #searchBox="ngForm">
+                <div class="header-search ms-3 d-flex align-items-center">
+                    <input type="text" class="seach-box"[(ngModel)]="searchText" name="searchText" 
+                    placeholder="search for books" (keyup)="searchBook(searchText)">
+                </div>
+            </form>
+            <button class="btn-theme ms-4" (click)="showSortMenu()">Sort</button>
+            <div class="dropdown-container" *ngIf="isSortMenuVisible">
+                <div class="dropdown-list row w-250">
+                    <span class="dropdown-list-item" *ngFor="let criterion of criteria" (click)="sortBooks(criterion)">
+                        {{criterion}}
+                    </span>
+                </div>
+            </div>
+            <div class="head-right-item">
+                <div class="cart" routerLink="cart">
+                    <img class="cart-image" src="assets/img/cart.png">
+                    <div class="cart-items" *ngIf="cartItemCount">{{cartItemCount}}</div>
+                </div>
+            </div>
         </div>
-    </form>
-    <button class="btn-theme ms-4" (click)="showSortMenu()">Sort</button>
-    <div class="dropdown-container" *ngIf="isSortMenuVisible">
-        <div class="dropdown-list row w-250">
-            <span class="dropdown-list-item" *ngFor="let criterion of criteria" (click)="sortBooks(criterion)">
-                {{criterion}}
-            </span>
-        </div>
+        
     </div>
-    <div class="head-right-item">
-        <div class="cart" routerLink="cart">
-            <img class="cart-image" src="assets/img/cart.png">
-            <div class="cart-items" *ngIf="cartItemCount">{{cartItemCount}}</div>
-        </div>
-    </div>
-</div>
